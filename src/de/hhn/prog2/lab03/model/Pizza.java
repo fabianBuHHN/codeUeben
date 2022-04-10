@@ -29,7 +29,9 @@ public class Pizza {
         return pizzaToppings;
     }
 
-
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
     public Pizza() {
         pizzaToppings = new ArrayList<>();
@@ -37,12 +39,12 @@ public class Pizza {
 
     /**
      * Calculates the price of one pizza based on size and toppings.
-     * Uses methods size.getPriceSize() and calcPriceToppings().
+     * Uses setPrice() to save the price in variable price.
      *
      * @return Pizza price
      */
     public double calcPrice() {
-
+        setPrice(size.getPriceSize() + calcPriceToppings());
         return  size.getPriceSize() + calcPriceToppings();
     }
 

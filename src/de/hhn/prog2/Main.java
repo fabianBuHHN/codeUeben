@@ -1,28 +1,21 @@
 package de.hhn.prog2;
 
-import de.hhn.prog2.lab02.Lab02Answers.HOBBY;
-import de.hhn.prog2.lab02.Lab02Answers.PersonService;
+import de.hhn.prog2.lab03.view.PizzaConfigPanel;
+import de.hhn.prog2.lab03.view.PizzaFrame;
 
-import java.util.HashSet;
+import java.awt.*;
 
 
 public class Main {
 
     public static void main(String[] args) {
 
-        PersonService personService = new PersonService();
-        HashSet<HOBBY> hobbies = new HashSet<>();
-        hobbies.add(HOBBY.LESEN);
-        hobbies.add(HOBBY.FITNESS);
+        PizzaFrame frame = new PizzaFrame();
+        frame.setSize(800, 600);
+        frame.setVisible(true);
 
-        try {
 
-            personService.createPerson(23, "", "Butter", hobbies);
-            personService.printPerson();
-        } catch (IllegalArgumentException illegalArgumentException) {
-            System.out.println("Please enter age, prename and lastname");
-        }
-        personService.createPerson(23, "Fabian", "Butter", hobbies);
-        personService.printPerson();
+
+
     }
 }
