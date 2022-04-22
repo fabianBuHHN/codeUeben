@@ -2,7 +2,7 @@ package de.hhn.prog2.lab03.model;
 
 public enum PizzaSize {
 
-    SMALL (5), MEDIUM (6), LARGE (8), EXTRA_LARGE (11);
+    SMALL (500), MEDIUM (600), LARGE (800), EXTRA_LARGE (1100);
 
 
     private final int priceSize;

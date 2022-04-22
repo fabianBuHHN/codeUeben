@@ -50,7 +50,7 @@ public class Order {
      */
     public double getOrderPrice() {
         for (Pizza p : pizzas) {
-            orderPrice += p.calcPrice();
+            orderPrice += p.getPrice();
         }
 
         return orderPrice;

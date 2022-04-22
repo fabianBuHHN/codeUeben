@@ -40,12 +40,11 @@ public class Pizza {
     /**
      * Calculates the price of one pizza based on size and toppings.
      * Uses setPrice() to save the price in variable price.
-     *
-     * @return Pizza price
      */
-    public double calcPrice() {
-        setPrice(size.getPriceSize() + calcPriceToppings());
-        return  size.getPriceSize() + calcPriceToppings();
+    private void calcPrice() {
+        if(price > 0 || pizzaToppings != null) {
+            setPrice(size.getPriceSize() + calcPriceToppings());
+        } else throw new RuntimeException("Pizza price cannot be calculated. No size or no topping chosen.");
     }
 
 
@@ -55,7 +54,7 @@ public class Pizza {
      * @return Toppings price
      */
     private double calcPriceToppings() {
-        return pizzaToppings.size() * 0.5;
+            return pizzaToppings.size() * 0.5;
     }
 
     /**
