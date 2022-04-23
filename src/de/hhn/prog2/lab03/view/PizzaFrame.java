@@ -12,7 +12,8 @@ public class PizzaFrame extends JFrame {
 
         PizzaConfigPanel pizzaConfigPanel = new PizzaConfigPanel();
         this.add(pizzaConfigPanel);
+        PizzaMenuBar menuBar = new PizzaMenuBar();
+        setJMenuBar(menuBar);
         pack();
-
     }
 }

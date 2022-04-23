@@ -5,13 +5,27 @@ import javax.swing.*;
 
 public class PizzaMenuBar extends JMenuBar {
 
-    JMenuBar menuBar;
-    JMenu data;
+    private JMenu menu;
+    private JMenuBar menubar;
+    private JMenuItem quit;
 
     public PizzaMenuBar() {
 
-        menuBar = new JMenuBar();
-        data = new JMenu("Datei");
-        menuBar.add(data);
+        // create a menubar
+        menubar = new JMenuBar();
+
+        // create a menu
+        menu = new JMenu("Datei");
+
+        menubar.add(menu);
+
+        // create menuitems
+        quit = new JMenuItem("Beenden");
+
+        // add menu items to menu
+        menu.add(quit);
+
+        // add menu to menu bar
+        menubar.add(menu);
     }
 }

@@ -10,6 +10,5 @@ public class Main {
         PizzaFrame frame = new PizzaFrame();
         frame.setSize(800, 600);
         frame.setVisible(true);
-
     }
 }

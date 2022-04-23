@@ -1,11 +1,15 @@
 package de.hhn.prog2.lab03.view;
 
+import de.hhn.prog2.lab03.model.Pizza;
+import de.hhn.prog2.lab03.model.PizzaSize;
+
 import javax.swing.*;
 import java.awt.*;
 
 
 public class PizzaConfigPanel extends JPanel {
 
+    private Pizza pizza;
     // Set pizza toppings
     private JCheckBox tomato = new JCheckBox("Tomaten");
     private JCheckBox cheese = new JCheckBox("Käse");
@@ -32,6 +36,11 @@ public class PizzaConfigPanel extends JPanel {
 
 
     public PizzaConfigPanel() {
+
+        if (pizza == null) {
+            pizza = new Pizza();
+        }
+
         // Set layout manager for PizzaConfigPanel
         BorderLayout borderLayout = new BorderLayout();
         this.setLayout(borderLayout);
@@ -43,10 +52,12 @@ public class PizzaConfigPanel extends JPanel {
 
         // set new Flow Layout Manager
         JPanel buttonPanel = new JPanel(new FlowLayout());
-        // add Buttons in flow layout
+
+        // add button group to button panel
         buttonPanel.add(exitButton);
         buttonPanel.add(addButton);
         buttonPanel.add(priceButton);
+
         // Add button panel to JPanel
         this.add(buttonPanel, BorderLayout.PAGE_END);
 
@@ -72,6 +83,7 @@ public class PizzaConfigPanel extends JPanel {
         //initialize new Panel for size selection
         JPanel sizePanel = new JPanel();
         sizePanel.setLayout(new BoxLayout(sizePanel, BoxLayout.Y_AXIS));
+
         //add label to size selection
         sizePanel.add(sizeLabel);
 
@@ -81,20 +93,30 @@ public class PizzaConfigPanel extends JPanel {
         JRadioButton largeSizeRadioButton = new JRadioButton(largeString);
         JRadioButton extra_largeSizeRadioButton = new JRadioButton(extra_largeString);
 
-        // add buttons to sizePanel and set label
+        // set labels to size selection radio buttons
         smallSizeRadioButton.setActionCommand(smallString);
-        sizePanel.add(smallSizeRadioButton);
-
         mediumSizeRadioButton.setActionCommand(mediumString);
-        sizePanel.add(mediumSizeRadioButton);
-
         largeSizeRadioButton.setActionCommand(largeString);
-        sizePanel.add(largeSizeRadioButton);
-
         extra_largeSizeRadioButton.setActionCommand(extra_largeString);
+
+        // set new button group for size radio buttons
+        ButtonGroup buttonGroup = new ButtonGroup();
+
+        // add size selection buttons to ButtonGroup
+        buttonGroup.add(smallSizeRadioButton);
+        buttonGroup.add(mediumSizeRadioButton);
+        buttonGroup.add(largeSizeRadioButton);
+        buttonGroup.add(extra_largeSizeRadioButton);
+
+        // add size selection Button to sizePanel
+        sizePanel.add(smallSizeRadioButton);
+        sizePanel.add(mediumSizeRadioButton);
+        sizePanel.add(largeSizeRadioButton);
         sizePanel.add(extra_largeSizeRadioButton);
+
 
         // Add Button Panel to Borderlayout manager
         this.add(sizePanel, BorderLayout.LINE_END);
+
     }
 }
