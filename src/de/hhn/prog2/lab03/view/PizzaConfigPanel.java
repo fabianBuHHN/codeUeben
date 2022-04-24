@@ -5,6 +5,8 @@ import de.hhn.prog2.lab03.model.PizzaSize;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class PizzaConfigPanel extends JPanel {
@@ -32,7 +34,6 @@ public class PizzaConfigPanel extends JPanel {
     // Set labeling
     private JLabel sizeLabel = new JLabel("Größe: ");
     private JLabel toppingLabel = new JLabel("Belag: ");
-    //   private ImageIcon pizzaImage = new ImageIcon("C:\\Users\\fabi2\\Desktop\\prog2-aib-fabutter\\pizzaIcon.png");
 
 
     public PizzaConfigPanel() {
@@ -44,11 +45,6 @@ public class PizzaConfigPanel extends JPanel {
         // Set layout manager for PizzaConfigPanel
         BorderLayout borderLayout = new BorderLayout();
         this.setLayout(borderLayout);
-/*
-        JLabel imageLabel = new JLabel(pizzaImage);
-        imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        imageLabel.setVerticalAlignment(SwingConstants.CENTER);
-        this.add(imageLabel);*/
 
         // set new Flow Layout Manager
         JPanel buttonPanel = new JPanel(new FlowLayout());
@@ -117,6 +113,5 @@ public class PizzaConfigPanel extends JPanel {
 
         // Add Button Panel to Borderlayout manager
         this.add(sizePanel, BorderLayout.LINE_END);
-
     }
 }

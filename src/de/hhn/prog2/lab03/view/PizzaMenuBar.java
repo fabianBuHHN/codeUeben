@@ -10,7 +10,9 @@ public class PizzaMenuBar extends JMenuBar {
     private JMenuItem quit;
 
     public PizzaMenuBar() {
+    }
 
+    public JMenuBar getJMenu(){
         // create a menubar
         menubar = new JMenuBar();
 
@@ -20,12 +22,15 @@ public class PizzaMenuBar extends JMenuBar {
         menubar.add(menu);
 
         // create menuitems
-        quit = new JMenuItem("Beenden");
+        quit = new JMenuItem("Schließen");
+
 
         // add menu items to menu
         menu.add(quit);
 
         // add menu to menu bar
         menubar.add(menu);
+
+        return menubar;
     }
 }

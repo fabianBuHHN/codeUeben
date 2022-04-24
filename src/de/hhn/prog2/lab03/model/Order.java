@@ -22,7 +22,7 @@ public class Order {
     }
 
     /**
-     * Adds a pizza object if there is one.
+     * Adds a pizza object if there is none.
      *
      * @param pizza The Object which is to be added to the List<Pizza>
      */
