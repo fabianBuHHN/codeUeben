@@ -6,31 +6,21 @@ import javax.swing.*;
 public class PizzaMenuBar extends JMenuBar {
 
     private JMenu menu;
-    private JMenuBar menubar;
     private JMenuItem quit;
 
     public PizzaMenuBar() {
+        initMenubar();
     }
 
-    public JMenuBar getJMenu(){
-        // create a menubar
-        menubar = new JMenuBar();
+    /**
+     * Creates a menu bar
+     */
+    private void initMenubar(){
 
-        // create a menu
         menu = new JMenu("Datei");
-
-        menubar.add(menu);
-
-        // create menuitems
         quit = new JMenuItem("Schließen");
-
-
-        // add menu items to menu
+        this.add(menu);
         menu.add(quit);
-
-        // add menu to menu bar
-        menubar.add(menu);
-
-        return menubar;
+        this.add(menu);
     }
 }

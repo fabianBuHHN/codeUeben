@@ -5,17 +5,8 @@ import java.util.List;
 
 public class Order {
 
-    private long orderId;
     private List<Pizza> pizzas;
     private double orderPrice;
-
-    public List<Pizza> getPizzas() {
-        return pizzas;
-    }
-
-    public void setOrderPrice(double orderPrice) {
-        this.orderPrice = orderPrice;
-    }
 
     public Order(){
         pizzas = new ArrayList<>();
@@ -50,7 +41,7 @@ public class Order {
      */
     public double getOrderPrice() {
         for (Pizza p : pizzas) {
-            orderPrice += p.getPrice();
+            orderPrice += p.calcPrice();
         }
 
         return orderPrice;

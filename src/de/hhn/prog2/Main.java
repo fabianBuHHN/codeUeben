@@ -7,8 +7,5 @@ public class Main {
 
     public static void main(String[] args) {
 
-        PizzaFrame frame = new PizzaFrame();
-        frame.setSize(800, 600);
-        frame.setVisible(true);
     }
 }

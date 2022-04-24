@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Pizza {
 
-    private double price;
     private PizzaSize size;
     private List<PizzaTopping> pizzaToppings;
 
@@ -13,24 +12,8 @@ public class Pizza {
         this.pizzaToppings = pizzaToppings;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public PizzaSize getSize() {
-        return size;
-    }
-
     public void setSize(PizzaSize size) {
         this.size = size;
-    }
-
-    public List<PizzaTopping> getPizzaToppings() {
-        return pizzaToppings;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public Pizza() {
@@ -41,12 +24,11 @@ public class Pizza {
      * Calculates the price of one pizza based on size and toppings.
      * Uses setPrice() to save the price in variable price.
      */
-    private void calcPrice() {
-        if(price > 0 || pizzaToppings != null) {
-            setPrice(size.getPriceSize() + calcPriceToppings());
-        } else throw new RuntimeException("Pizza price cannot be calculated. No size or no topping chosen.");
+    public double calcPrice() {
+        if(size != null) {
+            return (size.getPriceSize() + calcPriceToppings()) / 100;
+        } else throw new IllegalArgumentException("No size selected");
     }
-
 
     /**
      * Calculates the price of the pizza toppings.
@@ -54,19 +36,15 @@ public class Pizza {
      * @return Toppings price
      */
     private double calcPriceToppings() {
-            return pizzaToppings.size() * 0.5;
+        return pizzaToppings.size() * 50;
     }
 
-    /**
-     * Adds a topping to List pizzaToppings.
-     *
-     * @param topping Pizzatopping from ENUM PizzaTopping.
-     */
-    public void addPizzaToppings(PizzaTopping topping) {
-        try {
-            pizzaToppings.add(topping);
-        } catch (IllegalArgumentException illegalArgumentException) {
-            System.err.println("Topping not found");
-        }
+    @Override
+    public String toString() {
+        return "Pizza{" +
+                "price= " + calcPrice() +
+                "size=" + size +
+                ", pizzaToppings=" + pizzaToppings +
+                '}';
     }
 }

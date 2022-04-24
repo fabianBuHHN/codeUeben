@@ -15,6 +15,15 @@ public enum PizzaTopping {
         this.topping = toppingName;
     }
 
+    public static PizzaTopping fromString(String text) {
+        for (PizzaTopping pt : PizzaTopping.values()) {
+            if (pt.topping.equalsIgnoreCase(text)) {
+                return pt;
+            }
+        }
+        return null;
+    }
+
     public String getToppings() {
         return topping;
     }
