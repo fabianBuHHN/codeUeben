@@ -22,7 +22,6 @@ public class Pizza {
 
     /**
      * Calculates the price of one pizza based on size and toppings.
-     * Uses setPrice() to save the price in variable price.
      */
     public double calcPrice() {
         if(size != null) {

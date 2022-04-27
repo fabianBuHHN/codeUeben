@@ -24,7 +24,7 @@ public class Order {
     }
 
     /**
-     * If there is a pizza list and @param pizza is found in this list, @param pizza will be removed from this list
+     * If there is a pizza list and @param pizza is found in this list, @param pizza will be removed from this list.
      *
      * @param pizza The pizza object to be removed
      */
@@ -35,7 +35,10 @@ public class Order {
     }
 
     /**
-     * With a for-each loop is the price of the hole order calculated.
+     * Calculates the price of the hole Order.
+     *
+     * Uses a for-each loop to gather the price of every single pizza
+     * and save them in variable orderPrice.
      *
      * @return Price of the hole order
      */

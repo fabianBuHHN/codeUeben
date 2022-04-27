@@ -8,7 +8,6 @@ import de.hhn.prog2.lab03.model.PizzaTopping;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -18,7 +17,7 @@ public class PizzaConfigPanel extends JPanel {
     // Set Buttons
     private JButton quitButton = new JButton("Beenden");
     private JButton finishButton = new JButton("Fertig");
-    // Set labeling for checkboxes and radiobuttons
+    // Set labeling radiobuttons
     private JLabel sizeLabel = new JLabel("Größe: ");
     private JLabel toppingLabel = new JLabel("Belag: ");
 
@@ -150,7 +149,7 @@ public class PizzaConfigPanel extends JPanel {
         int n = JOptionPane.showConfirmDialog(
                 this,
                 "Die Pizza für den Preis von " + pizza.calcPrice() + " hinzufügen?",
-                "Pizza bestellen?",
+                "Pizza zur Bestellung hinzufügen?",
                 JOptionPane.YES_NO_OPTION);
 
         if(n == JOptionPane.YES_OPTION){

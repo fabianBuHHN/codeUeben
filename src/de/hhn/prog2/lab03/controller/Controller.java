@@ -26,6 +26,10 @@ public class Controller {
         this.pizza = pizza;
     }
 
+    /**
+     * Adds Action Listener to FinishButton, so that a pizza, with at least size selected, can be added to the order.
+     * Also prints pizza attributes on the console.
+     */
     public void init() {
         pizzaConfigPanel.getFinishButton().addActionListener(e -> {
             pizza.setSize(pizzaConfigPanel.getPizzaSize());
