@@ -38,7 +38,7 @@ public class Order {
      * Calculates the price of the hole Order.
      *
      * Uses a for-each loop to gather the price of every single pizza
-     * and save them in variable orderPrice.
+     * and saves them in variable orderPrice.
      *
      * @return Price of the hole order
      */

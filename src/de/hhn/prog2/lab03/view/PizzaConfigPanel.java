@@ -20,6 +20,9 @@ public class PizzaConfigPanel extends JPanel {
     // Set labeling radiobuttons
     private JLabel sizeLabel = new JLabel("Größe: ");
     private JLabel toppingLabel = new JLabel("Belag: ");
+    private JPanel sizePanel;
+    private JPanel buttonPanel;
+    private BorderLayout borderLayout;
 
     private ButtonGroup buttonGroup;
     private JPanel checkBoxPanel;
@@ -36,14 +39,10 @@ public class PizzaConfigPanel extends JPanel {
         this.pizza = pizza;
         this.order = order;
 
-        checkBoxes = new ArrayList<>();
+        setUpComponents();
 
         // Set layout manager for PizzaConfigPanel
-        BorderLayout borderLayout = new BorderLayout();
         this.setLayout(borderLayout);
-
-        // set new Flow Layout Manager
-        JPanel buttonPanel = new JPanel(new FlowLayout());
 
         // add button group to button panel
         buttonPanel.add(finishButton);
@@ -54,8 +53,6 @@ public class PizzaConfigPanel extends JPanel {
         // Add button panel to JPanel
         this.add(buttonPanel, BorderLayout.PAGE_END);
 
-        // initialize new Panel for Checkboxes
-        checkBoxPanel = new JPanel();
         checkBoxPanel.setLayout(new BoxLayout(checkBoxPanel, BoxLayout.Y_AXIS));
 
         checkBoxPanel.add(toppingLabel);
@@ -63,15 +60,10 @@ public class PizzaConfigPanel extends JPanel {
         // Add checkbox panel to Borderlayout Manager
         this.add(checkBoxPanel, BorderLayout.LINE_START);
 
-        //initialize new Panel for size selection
-        JPanel sizePanel = new JPanel();
         sizePanel.setLayout(new BoxLayout(sizePanel, BoxLayout.Y_AXIS));
 
         //add label to size selection
         sizePanel.add(sizeLabel);
-
-        // set new button group for size radio buttons
-        buttonGroup = new ButtonGroup();
 
         //adds checkboxes of toppings to layout
         for (PizzaTopping pt : PizzaTopping.values()) {
@@ -156,5 +148,17 @@ public class PizzaConfigPanel extends JPanel {
         if(n == JOptionPane.YES_OPTION){
             order.addPizza(pizza);
         }
+    }
+
+    /**
+     * Initializes Components need for PizzaConfigPanel layout and function.
+     */
+    private void setUpComponents(){
+        checkBoxes = new ArrayList<>();
+        buttonPanel = new JPanel(new FlowLayout());
+        checkBoxPanel = new JPanel();
+        buttonGroup = new ButtonGroup();
+        sizePanel = new JPanel();
+        borderLayout = new BorderLayout();
     }
 }
