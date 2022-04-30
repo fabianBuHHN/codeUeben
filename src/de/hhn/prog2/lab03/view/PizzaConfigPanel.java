@@ -25,6 +25,7 @@ public class PizzaConfigPanel extends JPanel {
     private JPanel checkBoxPanel;
     private List<JCheckBox> checkBoxes;
     private Order order;
+    private PizzaMenuBar menuBar = new PizzaMenuBar();
 
     public JButton getFinishButton() {
         return finishButton;

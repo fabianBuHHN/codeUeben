@@ -18,7 +18,7 @@ public class Controller {
 
         PizzaConfigPanel configPanel = frame.getPizzaConfigPanel();
         Controller controller = new Controller(configPanel, pizza);
-        controller.init();
+        controller.initFinishButton();
     }
 
     public Controller(PizzaConfigPanel configPanel, Pizza pizza) {
@@ -30,7 +30,7 @@ public class Controller {
      * Adds Action Listener to FinishButton, so that a pizza, with at least size selected, can be added to the order.
      * Also prints pizza attributes on the console.
      */
-    public void init() {
+    public void initFinishButton() {
         pizzaConfigPanel.getFinishButton().addActionListener(e -> {
             pizza.setSize(pizzaConfigPanel.getPizzaSize());
             pizza.setPizzaToppings(pizzaConfigPanel.getPizzaToppings());

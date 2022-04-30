@@ -9,6 +9,7 @@ import javax.swing.*;
 public class PizzaFrame extends JFrame {
 
     private PizzaConfigPanel pizzaConfigPanel;
+    private PizzaMenuBar menuBar;
 
     public PizzaFrame(Pizza pizza, Order order) {
         super("Papala Pub - Pizza Lieferservice");
@@ -16,7 +17,7 @@ public class PizzaFrame extends JFrame {
 
         pizzaConfigPanel = new PizzaConfigPanel(pizza, order);
 
-        PizzaMenuBar menuBar = new PizzaMenuBar();
+        menuBar = new PizzaMenuBar();
         this.setJMenuBar(menuBar);
 
         this.add(pizzaConfigPanel);
@@ -27,4 +28,5 @@ public class PizzaFrame extends JFrame {
     public PizzaConfigPanel getPizzaConfigPanel() {
         return pizzaConfigPanel;
     }
+
 }

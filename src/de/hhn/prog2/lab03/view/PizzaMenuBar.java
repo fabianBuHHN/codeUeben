@@ -5,22 +5,31 @@ import javax.swing.*;
 
 public class PizzaMenuBar extends JMenuBar {
 
-    private JMenu menu;
-    private JMenuItem quit;
+    private JMenu dataMenu;
+    private JMenuItem quitMenu;
 
     public PizzaMenuBar() {
         initMenubar();
+        quitFunction();
     }
 
     /**
-     * Creates a menu bar
+     * Creates a menu bar with an item to close the program
      */
-    private void initMenubar(){
+    private void initMenubar() {
 
-        menu = new JMenu("Datei");
-        quit = new JMenuItem("Schließen");
-        this.add(menu);
-        menu.add(quit);
-        this.add(menu);
+        dataMenu = new JMenu("Datei");
+        quitMenu = new JMenuItem("Schließen");
+
+        this.add(dataMenu);
+        dataMenu.add(quitMenu);
+        this.add(dataMenu);
+    }
+
+    /**
+     * Sets an ActionListener to add an exit functionality
+     */
+    private void quitFunction() {
+        quitMenu.addActionListener(e -> System.exit(0));
     }
 }
