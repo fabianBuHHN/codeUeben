@@ -1,5 +1,6 @@
 package de.hhn.prog2.lab03.model;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,10 @@ public class Pizza {
 
     public void setPizzaToppings(List<PizzaTopping> pizzaToppings) {
         this.pizzaToppings = pizzaToppings;
+    }
+
+    public PizzaSize getSize() {
+        return size;
     }
 
     public void setSize(PizzaSize size) {
@@ -24,9 +29,7 @@ public class Pizza {
      * Calculates the price of one pizza based on size and toppings.
      */
     public double calcPrice() {
-        if(size != null) {
             return (size.getPriceSize() + calcPriceToppings()) / 100;
-        } else throw new IllegalArgumentException("No size selected");
     }
 
     /**
@@ -41,9 +44,9 @@ public class Pizza {
     @Override
     public String toString() {
         return "Pizza{" +
-                "price= " + calcPrice() +
-                "size=" + size +
-                ", pizzaToppings=" + pizzaToppings +
+                " price= " + calcPrice() +
+                " size=" + size +
+                " , pizzaToppings=" + pizzaToppings +
                 '}';
     }
 }

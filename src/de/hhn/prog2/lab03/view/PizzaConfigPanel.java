@@ -28,27 +28,45 @@ public class PizzaConfigPanel extends JPanel {
     private JPanel checkBoxPanel;
     private List<JCheckBox> checkBoxes;
     private Order order;
-    private PizzaMenuBar menuBar = new PizzaMenuBar();
+
+    public List<JCheckBox> getCheckBoxes() {
+        return checkBoxes;
+    }
+
+    public ButtonGroup getButtonGroup() {
+        return buttonGroup;
+    }
 
     public JButton getFinishButton() {
         return finishButton;
     }
 
+    public JButton getQuitButton() {
+        return quitButton;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
     public PizzaConfigPanel(Pizza pizza, Order order) {
+
+        checkBoxes = new ArrayList<>();
+        buttonPanel = new JPanel(new FlowLayout());
+        checkBoxPanel = new JPanel();
+        buttonGroup = new ButtonGroup();
+        sizePanel = new JPanel();
+        borderLayout = new BorderLayout();
 
         this.pizza = pizza;
         this.order = order;
-
-        setUpComponents();
 
         // Set layout manager for PizzaConfigPanel
         this.setLayout(borderLayout);
 
         // add button group to button panel
         buttonPanel.add(finishButton);
-        finishButton.addActionListener(e -> finishButtonSelected());
         buttonPanel.add(quitButton);
-        quitButton.addActionListener(e -> quitButtonSelected());
 
         // Add button panel to JPanel
         this.add(buttonPanel, BorderLayout.PAGE_END);
@@ -85,12 +103,14 @@ public class PizzaConfigPanel extends JPanel {
         this.add(sizePanel, BorderLayout.LINE_END);
     }
 
-    /**
+    /*
+     *//**
      * Iterates over all checkboxes to find selected ones
      * and return themn in an arrayList
      *
      * @return An array with all selected toppings
-     */
+     *//*
+
     public List<PizzaTopping> getPizzaToppings() {
         List<PizzaTopping> result = new ArrayList<>();
 
@@ -102,63 +122,17 @@ public class PizzaConfigPanel extends JPanel {
         return result;
     }
 
-    /**
+
+    *//**
      * Returns selected size if a selection was made
      *
      * @return Selected size
-     */
+     *//*
     public PizzaSize getPizzaSize() {
         if (buttonGroup.getSelection() != null) {
             return PizzaSize.fromString(buttonGroup.getSelection().getActionCommand());
         } else return null;
     }
 
-    /**
-     * Configs dialog for quit button
-     */
-    private void quitButtonSelected(){
-        Object[] options = {"Ja!",
-                "Nein!"};
-        int n = JOptionPane.showOptionDialog(
-                this,
-                "Wirklich Beenden?",
-                "Beenden",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                options,
-                options[0]);
-        System.out.println("Selected option:" + n);
-
-        if (n == JOptionPane.YES_OPTION) {
-            System.exit(0);
-        }
-    }
-
-    /**
-     * Configs dialog for finish button
-     */
-    private void finishButtonSelected(){
-        int n = JOptionPane.showConfirmDialog(
-                this,
-                "Die Pizza für den Preis von " + pizza.calcPrice() + " hinzufügen?",
-                "Pizza zur Bestellung hinzufügen?",
-                JOptionPane.YES_NO_OPTION);
-
-        if(n == JOptionPane.YES_OPTION){
-            order.addPizza(pizza);
-        }
-    }
-
-    /**
-     * Initializes Components need for PizzaConfigPanel layout and function.
-     */
-    private void setUpComponents(){
-        checkBoxes = new ArrayList<>();
-        buttonPanel = new JPanel(new FlowLayout());
-        checkBoxPanel = new JPanel();
-        buttonGroup = new ButtonGroup();
-        sizePanel = new JPanel();
-        borderLayout = new BorderLayout();
-    }
+    */
 }
