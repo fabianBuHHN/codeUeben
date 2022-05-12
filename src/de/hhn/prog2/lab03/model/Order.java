@@ -12,6 +12,10 @@ public class Order {
         pizzas = new ArrayList<>();
     }
 
+    public List<Pizza> getPizzas() {
+        return pizzas;
+    }
+
     /**
      * Adds a pizza object if there is none.
      *

@@ -11,6 +11,7 @@ public class PizzaFrame extends JFrame {
     private PizzaConfigPanel pizzaConfigPanel;
     private PizzaMenuBar menuBar;
 
+
     public PizzaFrame(Pizza pizza, Order order) {
         super("Papala Pub - Pizza Lieferservice");
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -28,5 +29,4 @@ public class PizzaFrame extends JFrame {
     public PizzaConfigPanel getPizzaConfigPanel() {
         return pizzaConfigPanel;
     }
-
 }

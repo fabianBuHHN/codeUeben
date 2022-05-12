@@ -1,6 +1,5 @@
 package de.hhn.prog2.lab03.model;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +18,14 @@ public class Pizza {
 
     public void setSize(PizzaSize size) {
         this.size = size;
+    }
+
+    public List<PizzaTopping> getPizzaToppings() {
+        return pizzaToppings;
+    }
+
+    public Pizza getPizza(){
+        return this;
     }
 
     public Pizza() {
@@ -44,9 +51,9 @@ public class Pizza {
     @Override
     public String toString() {
         return "Pizza{" +
-                " price= " + calcPrice() +
-                " size=" + size +
-                " , pizzaToppings=" + pizzaToppings +
+                " Preis: " + calcPrice() +
+                " Größe: " + size +
+                " , Belag: " + pizzaToppings +
                 '}';
     }
 }

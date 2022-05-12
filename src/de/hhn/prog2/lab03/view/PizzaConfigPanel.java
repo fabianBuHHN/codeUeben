@@ -13,6 +13,8 @@ import java.util.List;
 
 public class PizzaConfigPanel extends JPanel {
 
+    private JButton testButton = new JButton("Test");
+
     private Pizza pizza;
     // Set Buttons
     private JButton quitButton = new JButton("Beenden");
@@ -20,8 +22,7 @@ public class PizzaConfigPanel extends JPanel {
     // Set labeling radiobuttons
     private JLabel sizeLabel = new JLabel("Größe: ");
     private JLabel toppingLabel = new JLabel("Belag: ");
-    private JPanel sizePanel;
-    private JPanel buttonPanel;
+    private JPanel sizePanel, buttonPanel;
     private BorderLayout borderLayout;
 
     private ButtonGroup buttonGroup;
@@ -49,6 +50,10 @@ public class PizzaConfigPanel extends JPanel {
         return order;
     }
 
+    public JButton getTestButton(){
+        return testButton;
+    }
+
     public PizzaConfigPanel(Pizza pizza, Order order) {
 
         checkBoxes = new ArrayList<>();
@@ -67,6 +72,7 @@ public class PizzaConfigPanel extends JPanel {
         // add button group to button panel
         buttonPanel.add(finishButton);
         buttonPanel.add(quitButton);
+        buttonPanel.add(testButton);
 
         // Add button panel to JPanel
         this.add(buttonPanel, BorderLayout.PAGE_END);
@@ -102,37 +108,4 @@ public class PizzaConfigPanel extends JPanel {
         // Add Button Panel to Borderlayout manager
         this.add(sizePanel, BorderLayout.LINE_END);
     }
-
-    /*
-     *//**
-     * Iterates over all checkboxes to find selected ones
-     * and return themn in an arrayList
-     *
-     * @return An array with all selected toppings
-     *//*
-
-    public List<PizzaTopping> getPizzaToppings() {
-        List<PizzaTopping> result = new ArrayList<>();
-
-        for (JCheckBox pt : checkBoxes) {
-            if (pt.isSelected()) {
-                result.add(PizzaTopping.fromString(pt.getActionCommand()));
-            }
-        }
-        return result;
-    }
-
-
-    *//**
-     * Returns selected size if a selection was made
-     *
-     * @return Selected size
-     *//*
-    public PizzaSize getPizzaSize() {
-        if (buttonGroup.getSelection() != null) {
-            return PizzaSize.fromString(buttonGroup.getSelection().getActionCommand());
-        } else return null;
-    }
-
-    */
 }

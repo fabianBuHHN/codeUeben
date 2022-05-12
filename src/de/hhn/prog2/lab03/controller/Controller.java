@@ -1,5 +1,6 @@
 package de.hhn.prog2.lab03.controller;
 
+import de.hhn.prog2.lab03.io.DataStorage;
 import de.hhn.prog2.lab03.model.Order;
 import de.hhn.prog2.lab03.model.Pizza;
 import de.hhn.prog2.lab03.model.PizzaSize;
@@ -13,26 +14,32 @@ import java.util.List;
 
 public class Controller {
 
-    private PizzaConfigPanel pizzaConfigPanel;
-    private Pizza pizza;
-    private PizzaSize size;
-
     public static void main(String[] args) {
         Pizza pizza = new Pizza();
         Order order = new Order();
         PizzaFrame frame = new PizzaFrame(pizza, order);
         PizzaConfigPanel configPanel = frame.getPizzaConfigPanel();
 
-        Controller controller = new Controller(configPanel, pizza);
+        new Controller(configPanel, pizza, frame);
         frame.setSize(800, 600);
     }
 
-    public Controller(PizzaConfigPanel configPanel, Pizza pizza) {
+    private PizzaConfigPanel pizzaConfigPanel;
+    private Pizza pizza;
+    private DataStorage data;
+    private JFrame frame;
+
+    public Controller(PizzaConfigPanel configPanel, Pizza pizza, JFrame frame) {
+        data = new DataStorage();
         this.pizzaConfigPanel = configPanel;
         this.pizza = pizza;
+        this.frame = frame;
+
         initFinishButton();
         initQuitButton();
+        initSaveMenu();
     }
+
 
     /**
      * Adds Action Listener to FinishButton, so that a pizza, with at least size selected, can be added to the order.
@@ -46,7 +53,7 @@ public class Controller {
     }
 
     /**
-     * Configs dialog for finish button
+     * Configures dialog for finish button
      */
     private void finishButtonSelected() {
         addToOrder();
@@ -58,6 +65,7 @@ public class Controller {
 
         if (n == JOptionPane.YES_OPTION) {
             pizzaConfigPanel.getOrder().addPizza(pizza);
+            data.writeOrderCSV(pizzaConfigPanel.getOrder());
         }
     }
 
@@ -89,7 +97,7 @@ public class Controller {
 
     /**
      * Gathers toppings selection and size selection to return both back to Pizza class
-     *
+     * <p>
      * Iterates over with for-each loop over all checkboxes. Saves the selection in
      * newly initialized ArrayList "result".
      */
@@ -100,7 +108,7 @@ public class Controller {
 
         try {
             if (pizzaConfigPanel.getButtonGroup().getSelection() != null)
-                this.size = PizzaSize.fromString(pizzaConfigPanel.getButtonGroup().getSelection().getActionCommand());
+                pizza.setSize(PizzaSize.fromString(pizzaConfigPanel.getButtonGroup().getSelection().getActionCommand()));
             else {
                 JOptionPane noSizePane = new JOptionPane("Wähle eine Pizzagröße", JOptionPane.WARNING_MESSAGE, JOptionPane.DEFAULT_OPTION);
                 noSizePane.createDialog(null, "Fehler").setVisible(true);
@@ -120,5 +128,8 @@ public class Controller {
             }
         }
         pizza.setPizzaToppings(result);
+    }
+
+    private void initSaveMenu(){
     }
 }
