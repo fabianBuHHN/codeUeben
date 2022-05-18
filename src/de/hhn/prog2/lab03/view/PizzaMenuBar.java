@@ -1,16 +1,12 @@
 package de.hhn.prog2.lab03.view;
 
-import de.hhn.prog2.lab03.io.DataStorage;
-
 import javax.swing.*;
-import java.io.IOException;
 
 
 public class PizzaMenuBar extends JMenuBar {
 
     private JMenu dataMenu;
     private JMenuItem quitMenu, orderMenu, saveMenu, readMenu;
-    private DataStorage data;
 
     public PizzaMenuBar() {
         initMenubar();
@@ -39,10 +35,10 @@ public class PizzaMenuBar extends JMenuBar {
         this.add(dataMenu);
         dataMenu.add(orderMenu);
         dataMenu.add(quitMenu);
-        dataMenu.addSeparator();
         orderMenu.add(saveMenu);
         orderMenu.add(readMenu);
         this.add(dataMenu);
+
     }
 
     /**
@@ -61,10 +57,5 @@ public class PizzaMenuBar extends JMenuBar {
      * Reads an order from CSV file.
      */
     private void readFunction() {
-        try {
-            data.readOrderCSV();
-        } catch (IOException ioe){
-            ioe.printStackTrace();
-        }
     }
 }

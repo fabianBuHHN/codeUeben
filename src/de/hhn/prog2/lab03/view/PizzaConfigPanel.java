@@ -28,7 +28,6 @@ public class PizzaConfigPanel extends JPanel {
     private ButtonGroup buttonGroup;
     private JPanel checkBoxPanel;
     private List<JCheckBox> checkBoxes;
-    private Order order;
 
     public List<JCheckBox> getCheckBoxes() {
         return checkBoxes;
@@ -46,15 +45,11 @@ public class PizzaConfigPanel extends JPanel {
         return quitButton;
     }
 
-    public Order getOrder() {
-        return order;
-    }
-
     public JButton getTestButton(){
         return testButton;
     }
 
-    public PizzaConfigPanel(Pizza pizza, Order order) {
+    public PizzaConfigPanel() {
 
         checkBoxes = new ArrayList<>();
         buttonPanel = new JPanel(new FlowLayout());
@@ -62,9 +57,6 @@ public class PizzaConfigPanel extends JPanel {
         buttonGroup = new ButtonGroup();
         sizePanel = new JPanel();
         borderLayout = new BorderLayout();
-
-        this.pizza = pizza;
-        this.order = order;
 
         // Set layout manager for PizzaConfigPanel
         this.setLayout(borderLayout);

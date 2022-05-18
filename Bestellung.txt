@@ -1,1 +1,1 @@
-[Pizza{ Preis: 6.0 Größe: SMALL , Belag: [ANANAS, SEAFOOD]}]
+[Pizza{ Preis: 12.0 Größe: EXTRA_LARGE , Belag: [SALAMI, SEAFOOD]}]

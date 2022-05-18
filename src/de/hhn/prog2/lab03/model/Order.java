@@ -8,6 +8,10 @@ public class Order {
     private List<Pizza> pizzas;
     private double orderPrice;
 
+    public Order getOrder(){
+        return this;
+    }
+
     public Order(){
         pizzas = new ArrayList<>();
     }
@@ -19,7 +23,7 @@ public class Order {
     /**
      * Adds a pizza object if there is none.
      *
-     * @param pizza The Object which is to be added to the List<Pizza>
+     * @param pizza The Object which is to be added to the List
      */
     public void addPizza(Pizza pizza) {
         if (pizza != null) {

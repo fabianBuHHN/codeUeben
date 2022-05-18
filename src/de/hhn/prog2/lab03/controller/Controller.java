@@ -7,6 +7,7 @@ import de.hhn.prog2.lab03.model.PizzaSize;
 import de.hhn.prog2.lab03.model.PizzaTopping;
 import de.hhn.prog2.lab03.view.PizzaConfigPanel;
 import de.hhn.prog2.lab03.view.PizzaFrame;
+import de.hhn.prog2.lab03.view.PizzaMenuBar;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -15,25 +16,26 @@ import java.util.List;
 public class Controller {
 
     public static void main(String[] args) {
-        Pizza pizza = new Pizza();
-        Order order = new Order();
-        PizzaFrame frame = new PizzaFrame(pizza, order);
-        PizzaConfigPanel configPanel = frame.getPizzaConfigPanel();
-
-        new Controller(configPanel, pizza, frame);
-        frame.setSize(800, 600);
+        PizzaFrame frame = new PizzaFrame();
+        new Controller(frame);
     }
 
     private PizzaConfigPanel pizzaConfigPanel;
     private Pizza pizza;
     private DataStorage data;
-    private JFrame frame;
+    private Order order;
+    private PizzaFrame pizzaFrame;
 
-    public Controller(PizzaConfigPanel configPanel, Pizza pizza, JFrame frame) {
+
+    public Controller(PizzaFrame frame) {
+        pizza = new Pizza();
+        order = new Order();
+
+        pizzaFrame = frame;
+        pizzaConfigPanel = frame.getPizzaConfigPanel();
+        frame.setSize(800, 600);
+
         data = new DataStorage();
-        this.pizzaConfigPanel = configPanel;
-        this.pizza = pizza;
-        this.frame = frame;
 
         initFinishButton();
         initQuitButton();
@@ -64,8 +66,8 @@ public class Controller {
                 JOptionPane.YES_NO_OPTION);
 
         if (n == JOptionPane.YES_OPTION) {
-            pizzaConfigPanel.getOrder().addPizza(pizza);
-            data.writeOrderCSV(pizzaConfigPanel.getOrder());
+            order.addPizza(pizza);
+            data.writeOrderCSV(order.getOrder());
         }
     }
 
@@ -130,6 +132,18 @@ public class Controller {
         pizza.setPizzaToppings(result);
     }
 
+/*    private void initSaveMenu1(){
+        menuBar.getSaveMenu().addActionListener(e -> {
+
+            @Override
+            public void actionPer
+            addToOrder();
+            data.writeOrderCSV(order.getOrder());
+
+        });
+    }*/
+
     private void initSaveMenu(){
+       pizzaFrame.getMenuBar().
     }
 }

@@ -30,43 +30,43 @@ public class UserSchnittstelle {
         System.out.println("Was möchten Sie machen?");
         System.out.println("Tippen sie 'hilfe' für die Hilfe ein");
         while (scan.hasNext()) {
-                switch (scan.nextLine().toLowerCase(Locale.ROOT)) {
-                    case "student aufnehmen":
-                        System.out.println("Bitte geben Sie den Namen, den Vornamen und die Matrikelnummer ein - nach jeder Eingabe bitte die Eingabetaste drücken");
-                        String name = scan.nextLine();
-                        String prename = scan.nextLine();
-                        int matriculationNumber = scan.nextInt();
-                        try {
-                            aufnehmen(name, prename, matriculationNumber);
-                        }catch (IOException ioex){
-                            System.out.println("Bitte die Eingabe prüfen und wiederholen");
-                            System.out.println();
-                            readInput();
-                            break;
-                        }
-                        System.out.println("Student aufgenommen");
+            switch (scan.nextLine().toLowerCase(Locale.ROOT)) {
+                case "student aufnehmen":
+                    System.out.println("Bitte geben Sie den Namen, den Vornamen und die Matrikelnummer ein - nach jeder Eingabe bitte die Eingabetaste drücken");
+                    String name = scan.nextLine();
+                    String prename = scan.nextLine();
+                    int matriculationNumber = scan.nextInt();
+                    try {
+                        aufnehmen(name, prename, matriculationNumber);
+                    } catch (IOException ioex) {
+                        System.out.println("Bitte die Eingabe prüfen und wiederholen");
+                        System.out.println();
+                        readInput();
                         break;
-                    case "student exmatrikulieren":
-                        System.out.println("Bitte geben Sie die Matrikelnummer des Studenten ein");
-                        int matNumber = scan.nextInt();
-                        exmatrikulieren(matNumber);
-                        System.out.println("Student " + matNumber + " exmatrikuliert");
-                        break;
-                    case "alle studenten ausgeben":
-                        listeAusgeben();
-                        break;
-                    case "hilfe" :
-                        hilfe();
-                        break;
-                }
+                    }
+                    System.out.println("Student aufgenommen");
+                    break;
+                case "student exmatrikulieren":
+                    System.out.println("Bitte geben Sie die Matrikelnummer des Studenten ein");
+                    int matNumber = scan.nextInt();
+                    exmatrikulieren(matNumber);
+                    System.out.println("Student " + matNumber + " exmatrikuliert");
+                    break;
+                case "alle studenten ausgeben":
+                    listeAusgeben();
+                    break;
+                case "hilfe":
+                    hilfe();
+                    break;
+            }
         }
     }
 
     /**
      * Adds a student entry to a list of students in class StudentManamgement.
      *
-     * @param name name of the student
-     * @param prename prename of the student
+     * @param name                name of the student
+     * @param prename             prename of the student
      * @param matriculationNumber matriculation numbber of the student
      */
     private void aufnehmen(String name, String prename, int matriculationNumber) throws IOException {

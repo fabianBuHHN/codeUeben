@@ -1,8 +1,5 @@
 package de.hhn.prog2.lab03.view;
 
-import de.hhn.prog2.lab03.model.Order;
-import de.hhn.prog2.lab03.model.Pizza;
-
 import javax.swing.*;
 
 
@@ -12,11 +9,11 @@ public class PizzaFrame extends JFrame {
     private PizzaMenuBar menuBar;
 
 
-    public PizzaFrame(Pizza pizza, Order order) {
+    public PizzaFrame() {
         super("Papala Pub - Pizza Lieferservice");
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        pizzaConfigPanel = new PizzaConfigPanel(pizza, order);
+        pizzaConfigPanel = new PizzaConfigPanel();
 
         menuBar = new PizzaMenuBar();
         this.setJMenuBar(menuBar);
