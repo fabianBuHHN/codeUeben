@@ -49,7 +49,7 @@ public class PizzaConfigPanel extends JPanel {
         return testButton;
     }
 
-    public PizzaConfigPanel() {
+    public PizzaConfigPanel(Pizza pizza, Order order) {
 
         checkBoxes = new ArrayList<>();
         buttonPanel = new JPanel(new FlowLayout());

@@ -7,7 +7,6 @@ import de.hhn.prog2.lab03.model.PizzaSize;
 import de.hhn.prog2.lab03.model.PizzaTopping;
 import de.hhn.prog2.lab03.view.PizzaConfigPanel;
 import de.hhn.prog2.lab03.view.PizzaFrame;
-import de.hhn.prog2.lab03.view.PizzaMenuBar;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -16,30 +15,33 @@ import java.util.List;
 public class Controller {
 
     public static void main(String[] args) {
-        PizzaFrame frame = new PizzaFrame();
-        new Controller(frame);
+        Pizza pizza = new Pizza();
+        Order order = new Order();
+        PizzaFrame pizzaFrame = new PizzaFrame(pizza, order);
+
+        pizzaFrame.setSize(800, 600);
+
+        new Controller(pizza, pizzaFrame);
     }
+
 
     private PizzaConfigPanel pizzaConfigPanel;
     private Pizza pizza;
     private DataStorage data;
+    private PizzaFrame frame;
     private Order order;
-    private PizzaFrame pizzaFrame;
 
 
-    public Controller(PizzaFrame frame) {
-        pizza = new Pizza();
+    public Controller(Pizza pizza, PizzaFrame frame) {
         order = new Order();
-
-        pizzaFrame = frame;
-        pizzaConfigPanel = frame.getPizzaConfigPanel();
-        frame.setSize(800, 600);
-
         data = new DataStorage();
+
+        this.pizzaConfigPanel = frame.getPizzaConfigPanel();
+        this.pizza = pizza;
+        this.frame = frame;
 
         initFinishButton();
         initQuitButton();
-        initSaveMenu();
     }
 
 
@@ -132,18 +134,7 @@ public class Controller {
         pizza.setPizzaToppings(result);
     }
 
-/*    private void initSaveMenu1(){
-        menuBar.getSaveMenu().addActionListener(e -> {
-
-            @Override
-            public void actionPer
-            addToOrder();
-            data.writeOrderCSV(order.getOrder());
-
-        });
-    }*/
-
     private void initSaveMenu(){
-       pizzaFrame.getMenuBar().
+
     }
 }

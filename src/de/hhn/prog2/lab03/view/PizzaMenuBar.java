@@ -20,6 +20,7 @@ public class PizzaMenuBar extends JMenuBar {
         return quitMenu;
     }
 
+
     /**
      * Creates a menu bar with an item to close the program
      */
@@ -44,18 +45,18 @@ public class PizzaMenuBar extends JMenuBar {
     /**
      * Sets an ActionListener to add a quit functionality.
      */
-    private void quitFunction() {
+    public void quitFunction() {
         quitMenu.addActionListener(e -> System.exit(0));
     }
 
     /**
      * Saves order in CSV file.
      */
-    private void saveMenuSelected() {
+    public void saveMenuSelected() {
     }
     /**
      * Reads an order from CSV file.
      */
-    private void readFunction() {
+    public void readFunction() {
     }
 }
