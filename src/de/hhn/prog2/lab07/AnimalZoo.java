@@ -44,5 +44,4 @@ public class AnimalZoo {
             animal.eat();
         }
     }
-
 }
