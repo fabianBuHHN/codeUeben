@@ -8,7 +8,7 @@ public class GenericsExercise {
      * which was handed over in parameter list
      */
     public <Out> void checkType(Out type) {
-        System.out.format("%s is of type " + type.getClass().getName() + "\r\n", type);
+        System.out.format("%s is of type %s \r\n", type, type.getClass().getName());
     }
 
     public static void main(String[] args) {
