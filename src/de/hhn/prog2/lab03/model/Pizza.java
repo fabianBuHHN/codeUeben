@@ -34,6 +34,8 @@ public class Pizza {
 
     /**
      * Calculates the price of one pizza based on size and toppings.
+     *
+     * @return Price of pizza
      */
     public double calcPrice() {
             return (size.getPriceSize() + calcPriceToppings()) / 100;
@@ -50,10 +52,7 @@ public class Pizza {
 
     @Override
     public String toString() {
-        return "Pizza{" +
-                " Preis: " + calcPrice() +
-                " Größe: " + size +
-                " , Belag: " + pizzaToppings +
-                '}';
+        return String.format("Pizzagröße: %s ; Pizzabelag: %s ; Preis: %g \r\n" , getSize().toString(), getPizzaToppings(), calcPrice()); //Wie könne die nullen entfernt werden??
     }
+
 }

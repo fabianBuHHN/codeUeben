@@ -7,8 +7,10 @@ import de.hhn.prog2.lab03.model.PizzaSize;
 import de.hhn.prog2.lab03.model.PizzaTopping;
 import de.hhn.prog2.lab03.view.PizzaConfigPanel;
 import de.hhn.prog2.lab03.view.PizzaFrame;
+import de.hhn.prog2.lab03.view.PizzaMenuBar;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +32,7 @@ public class Controller {
     private DataStorage data;
     private PizzaFrame frame;
     private Order order;
+    private PizzaMenuBar menuBar;
 
 
     public Controller(Pizza pizza, PizzaFrame frame) {
@@ -40,8 +43,13 @@ public class Controller {
         this.pizza = pizza;
         this.frame = frame;
 
+        menuBar = (PizzaMenuBar) frame.getJMenuBar();
+
         initFinishButton();
         initQuitButton();
+        initQuitMenu();
+        initSaveMenu();
+        initReadMenu();
     }
 
 
@@ -100,7 +108,7 @@ public class Controller {
     }
 
     /**
-     * Gathers toppings selection and size selection to return both back to Pizza class
+     * Gathers toppings selection and size selection to return both back to Pizza class.
      * <p>
      * Iterates over with for-each loop over all checkboxes. Saves the selection in
      * newly initialized ArrayList "result".
@@ -122,6 +130,8 @@ public class Controller {
             System.err.println("No Size selection made");
         }
 
+        boolean toppingChossen = false;
+
         //get topping selection
         for (JCheckBox pt : pizzaConfigPanel.getCheckBoxes()) {
             if (pt.isSelected()) {
@@ -134,7 +144,35 @@ public class Controller {
         pizza.setPizzaToppings(result);
     }
 
-    private void initSaveMenu(){
+    private void initSaveMenu() {
+        try {
+            menuBar.getSaveMenu().addActionListener(e -> {
+                        addToOrder();
+                        order.addPizza(pizza);
+                        data.writeOrderCSV(order.getOrder());
+                    }
+            );
+        } catch (NullPointerException npex) {
+            JOptionPane saveMenuPane = new JOptionPane("Fehler beim speichern", JOptionPane.WARNING_MESSAGE, JOptionPane.DEFAULT_OPTION);
+            saveMenuPane.createDialog(null, "Fehler").setVisible(true);
+        }
+    }
 
+    /**
+     * Displays all orders in a dialog.
+     */
+    private void initReadMenu() {
+        menuBar.getReadMenu().addActionListener(e -> {
+            try {
+                data.readOrderCSV();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                System.err.println("problem reading file");
+            }
+        });
+    }
+
+    private void initQuitMenu() {
+        menuBar.getQuitMenu().addActionListener(e -> System.exit(0));
     }
 }

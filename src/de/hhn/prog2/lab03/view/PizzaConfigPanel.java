@@ -13,8 +13,6 @@ import java.util.List;
 
 public class PizzaConfigPanel extends JPanel {
 
-    private JButton testButton = new JButton("Test");
-
     private Pizza pizza;
     // Set Buttons
     private JButton quitButton = new JButton("Beenden");
@@ -45,18 +43,14 @@ public class PizzaConfigPanel extends JPanel {
         return quitButton;
     }
 
-    public JButton getTestButton(){
-        return testButton;
-    }
-
     public PizzaConfigPanel(Pizza pizza, Order order) {
 
-        checkBoxes = new ArrayList<>();
         buttonPanel = new JPanel(new FlowLayout());
         checkBoxPanel = new JPanel();
         buttonGroup = new ButtonGroup();
         sizePanel = new JPanel();
         borderLayout = new BorderLayout();
+        checkBoxes = new ArrayList<>();
 
         // Set layout manager for PizzaConfigPanel
         this.setLayout(borderLayout);
@@ -64,7 +58,6 @@ public class PizzaConfigPanel extends JPanel {
         // add button group to button panel
         buttonPanel.add(finishButton);
         buttonPanel.add(quitButton);
-        buttonPanel.add(testButton);
 
         // Add button panel to JPanel
         this.add(buttonPanel, BorderLayout.PAGE_END);

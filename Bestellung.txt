@@ -1,1 +1,5 @@
-[Pizza{ Preis: 12.0 Größe: EXTRA_LARGE , Belag: [CHEESE, SOUR_CREAM]}]
+[Pizzagröße: SMALL ; Pizzabelag: [SALAMI] ; Preis: 5,50000 
+, Pizzagröße: SMALL ; Pizzabelag: [SALAMI] ; Preis: 5,50000 
+, Pizzagröße: SMALL ; Pizzabelag: [SALAMI] ; Preis: 5,50000 
+, Pizzagröße: SMALL ; Pizzabelag: [SALAMI] ; Preis: 5,50000 
+]

@@ -3,7 +3,7 @@ package de.hhn.prog2.lab03.io;
 import de.hhn.prog2.lab03.model.Order;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 public class DataStorage {
 
@@ -16,8 +16,9 @@ public class DataStorage {
      * @param order The pizza order to be written in a file
      */
     public void writeOrderCSV(Order order) {
-        try (BufferedWriter fWriter = new BufferedWriter(new FileWriter("Bestellung.txt" ))) {
-            fWriter.append(order.getPizzas().toString());
+        try (BufferedWriter fWriter = new BufferedWriter(new FileWriter("Bestellung.txt"))) {
+            fWriter.write(order.getPizzas().toString());
+            fWriter.newLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -27,22 +28,16 @@ public class DataStorage {
     /**
      * Reads from CSV file and returns the order for further processing.
      *
-     *
-     *
      * @return The pizza order to be processed
      */
     public Order readOrderCSV() throws IOException {
-        fReader = new BufferedReader(new FileReader("Bestellung.txt", StandardCharsets.UTF_8));
 
-        String test;
+        String reader;
 
-        try {
-            while ((test = fReader.readLine()) != null) {
-                System.out.println(test);
-            }
-        } finally {
-            if (fReader != null) {
-                fReader.close();
+        try (BufferedReader bReader = new BufferedReader(new FileReader("Bestellung.txt"))) {
+            reader = bReader.readLine();
+            while (reader != null) {
+                reader = reader + Arrays.toString(reader.split(","));
             }
         }
         return null;
